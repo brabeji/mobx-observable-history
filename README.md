@@ -27,8 +27,11 @@ import { autorun, reaction, comparer } from "mobx"
 import { createBrowserHistory } from "history";
 import { createObservableHistory } from "mobx-observable-history"
 
-const history = createBrowserHistory();
-const navigation = createObservableHistory(history);
+// Comaptible with `react-router` through supplying external `history` instance, tested with history@^4.10.1
+// const history = createBrowserHistory();
+// const navigation = createObservableHistory(history);
+
+const navigation = createObservableHistory();
 
 // Reacting to any location change
 autorun(() => {
